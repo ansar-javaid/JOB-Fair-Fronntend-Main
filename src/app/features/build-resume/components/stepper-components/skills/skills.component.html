@@ -1,0 +1,15 @@
+<h1>{{heading}}</h1>
+<div class="row">
+    <div *ngFor="let data of skillData; let i = index" class="divider col-12 col-md-3">
+        <div class="d-flex gap-2 align-items-center">
+            <input type="text" placeholder="Skill" class="form-control" [(ngModel)]="data.name">
+            <button class="btn btn-sm btn-danger" *ngIf="i != 0" (click)="deleteSkillItem(i)">X</button>
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-success btn-sm mb-3" (click)="addNewFields()">Add More</button>
+
+<div class="d-flex gap-2">
+    <button class="btn btn-primary" (click)="saveAndNext()">Save</button>
+</div>

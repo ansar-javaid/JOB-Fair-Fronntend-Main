@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="container-body">
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-success" [routerLink]="'/view-resume'">View Resume</button>
+      <button class="btn btn-danger ms-2" (click)="logout()">Logout</button>
+    </div>
+
+    <mat-stepper class="example-stepper" [orientation]="(stepperOrientation | async)!">
+      <mat-step [completed]="false">
+        <app-personal heading="Personal Information"></app-personal>
+      </mat-step>
+      <mat-step [completed]="false">
+        <app-education heading="Education"></app-education>
+      </mat-step>
+      <mat-step [completed]="false">
+        <app-work heading="Work Experience">
+        </app-work>
+      </mat-step>
+      <mat-step [completed]="false">
+        <app-skills heading="Skills"></app-skills>
+      </mat-step>
+      <mat-step [completed]="false">
+        <app-certification heading="Certifications"></app-certification>
+      </mat-step>
+      <mat-step [completed]="false">
+        <app-awards heading="Awards"></app-awards>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <h1>Thanks for submitting your Information</h1>
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary" matStepperPrevious>Back</button>
+          <button class="btn btn-success" (click)="buildResume()">Build My Resume</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
+  
+  </div>
+</div>

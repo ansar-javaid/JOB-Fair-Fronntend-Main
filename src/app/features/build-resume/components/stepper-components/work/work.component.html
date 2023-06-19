@@ -1,0 +1,21 @@
+<h1>{{heading}}</h1>
+<div *ngFor="let data of workData; let i = index" class="divider"> 
+    <button class="btn btn-sm btn-danger mb-3 ms-auto d-block" *ngIf="i != 0" (click)="deleteWorkItem(i)">X</button>  
+    <div class="mb-3 d-flex gap-3">
+        <input type="text" placeholder="Company Name" class="form-control" [(ngModel)]="data.organization">
+        <input type="text" placeholder="Job Title" class="form-control" [(ngModel)]="data.jobRole">
+        <input type="text" placeholder="Job Description" class="form-control" [(ngModel)]="data.jobDescription">
+    </div>
+    
+    <div class="mb-3 d-flex gap-3">
+        <input type="date" placeholder="Start Year" class="form-control" [(ngModel)]="data.start">
+        <input type="date" placeholder="End Year" class="form-control" [(ngModel)]="data.end">
+    </div>
+</div>
+
+<button class="btn btn-success btn-sm mb-3" (click)="addNewFields()">Add More</button>
+
+<div class="d-flex gap-2">
+    <button class="btn btn-primary" matStepperPrevious>Back</button>
+    <button class="btn btn-primary" (click)="saveAndNext()">Save & Next</button>
+</div>

@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Confirmation</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>Are you sure you want to submit this information. It cannot be edited</h3>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="btn btn-secondary me-2" mat-dialog-close>Cancel</button>
+  <button class="btn btn-success" [mat-dialog-close]="true" cdkFocusInitial>Submit</button>
+</mat-dialog-actions>

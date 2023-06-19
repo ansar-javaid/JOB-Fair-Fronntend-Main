@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="login-body">
+        <p class="text-center h1 mb-3">Signup</p>
+        <a class="text-primary text-center d-block mb-4" [routerLink]="'/login'">Already have an account?</a>
+        <div class="mb-3 d-flex gap-2">
+            <input type="text" id="firstname" placeholder="First Name" class="form-control"
+                [(ngModel)]="signupData.firstName">
+            <input type="text" id="lastname" placeholder="Last Name" class="form-control"
+                [(ngModel)]="signupData.lastName">
+        </div>
+        <div class="mb-3">
+            <input type="text" id="email" placeholder="Email" class="form-control" [(ngModel)]="signupData.email">
+        </div>
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <input type="password" id="password" placeholder="Password" class="form-control"
+                [(ngModel)]="signupData.password">
+        </div>
+        <div class="mb-3">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" class="form-control"
+                [(ngModel)]="signupData.confirmPassword">
+        </div>
+        <p class="text-danger error" *ngIf="errorMessage">*{{errorMessage}}</p>
+        <button class="btn btn-primary ms-auto d-block" (click)="handleSignup()"><span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Signup</button>
+    </div>
+</div>

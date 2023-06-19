@@ -1,0 +1,40 @@
+<ng-container *ngIf="isFormLoaded">
+    <h1>{{ heading }}</h1>
+    
+    <form [formGroup]="form" enctype="multipart/form-data" (ngSubmit)="savePersonalData()">
+      <div class="mb-3 d-flex gap-3">
+        <input type="text" placeholder="Registration Number" class="form-control" formControlName="Registration">
+        <input type="text" placeholder="Phone" class="form-control" formControlName="Phone">
+        <select class="form-select" formControlName="DepartmentId">
+          <option value="1000">Department</option>
+          <ng-container *ngFor="let department of allDepartments">
+            <option [value]="department.departmentId">{{ department.name }}</option>
+          </ng-container>
+        </select>
+      </div>
+      
+      <div class="mb-3 d-flex gap-3">
+        <input type="text" placeholder="Address" class="form-control" formControlName="Address">
+      </div>
+      
+      <div class="mb-3 d-flex gap-3">
+        <input type="text" placeholder="LinkedIn" class="form-control" formControlName="LinkedIn">
+        <input type="text" placeholder="Website" class="form-control" formControlName="Website">
+      </div>
+      
+      <div class="mb-3 d-flex gap-3">
+        <textarea placeholder="Summary" class="form-control" formControlName="Summary"></textarea>
+      </div>
+      
+      <div class="mb-3 d-flex align-items-center">
+        <app-profile-image [profileImageUrl]="imageUrl" *ngIf="imageUrl"></app-profile-image>
+        <input type="file" name="image" id="image" accept="image/*" (change)="onImageUpload($event)">
+      </div>
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary" matStepperNext type="submit" [disabled]="isLoading">
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Save
+        </button>
+      </div>
+    </form>
+  </ng-container>
+  

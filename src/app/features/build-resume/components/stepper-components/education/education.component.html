@@ -1,0 +1,21 @@
+<h1>{{heading}}</h1>
+<div *ngFor="let data of educationData; let i = index" class="divider"> 
+    <button class="btn btn-sm btn-danger mb-3 ms-auto d-block" *ngIf="i != 0" (click)="deleteEducationItem(i)">X</button>  
+    <div class="mb-3 d-flex gap-3">
+        <input type="text" placeholder="Institute Name" class="form-control" [(ngModel)]="data.instituteName">
+        <input type="text" placeholder="Major" class="form-control" [(ngModel)]="data.major">
+        <input type="text" placeholder="Marks" class="form-control" [(ngModel)]="data.marks">
+    </div>
+    
+    <div class="mb-3 d-flex gap-3">
+        <input type="date" placeholder="Start Year" class="form-control" [(ngModel)]="data.start">
+        <input type="date" placeholder="End Year" class="form-control" [(ngModel)]="data.end">
+    </div>
+
+</div>
+
+<button class="btn btn-success btn-sm mb-3" (click)="addNewFields()">Add More</button>
+
+<div class="d-flex gap-2">
+    <button class="btn btn-primary" (click)="saveAndNext()">Save</button>
+</div>

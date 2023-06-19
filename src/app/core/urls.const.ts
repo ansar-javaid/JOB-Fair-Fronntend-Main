@@ -1,0 +1,1 @@
+export const baseUrl: string = 'https://sdcportalapijob23.azurewebsites.net/api/';

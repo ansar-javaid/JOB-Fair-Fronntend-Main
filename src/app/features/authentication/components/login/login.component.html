@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="login-body">
+        <p class="text-center h1 mb-3">Login</p>
+        <a class="text-primary text-center d-block mb-4" [routerLink]="'/signup'">Need an account?</a>
+        <div class="mb-3">
+            <input type="email" id="email" placeholder="Email" class="form-control" [(ngModel)]="email">
+        </div>
+        <div class="mb-3">
+            <input type="password" id="password" placeholder="Password" class="form-control" [(ngModel)]="password">
+            <p class="text-danger input-error" *ngIf="errorMessage">*{{errorMessage}}</p>
+        </div>
+        <a class="text-primary d-block mb-4" [routerLink]="'/forgot-password'">Forgot Password?</a>
+        <button class="btn btn-primary ms-auto d-block" (click)="login()"><span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Login</button>
+    </div>
+</div>
