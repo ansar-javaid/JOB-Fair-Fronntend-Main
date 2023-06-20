@@ -1,12 +1,13 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 85vh;
-    width: 100%;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // min-height: 85vh;
+    // // width: 100%;
 
     .container-body {
-        min-width: 450px;
+        // width: 450px;
+        max-width: 100vw !important;
         border-radius: 10px;
         box-shadow: 0 0 10px #00000030;
         padding: 30px;
@@ -22,5 +23,8 @@
 
     a {
         text-decoration: none;
+    }
+    .example-stepper {
+        max-width: 95vw;
     }
 }

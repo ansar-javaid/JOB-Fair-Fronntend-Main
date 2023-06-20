@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ISkill } from '../../../../models/resume.model';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-skills',
@@ -9,6 +10,7 @@ import { ISkill } from '../../../../models/resume.model';
 })
 export class SkillsComponent {
   @Input() heading: string = '';
+  @Input() declare stepper: MatStepper;
   public dummySkillData: ISkill = {
     name: ''
   };
@@ -44,6 +46,7 @@ export class SkillsComponent {
       }).subscribe(
         (res) => {
           // Handle success response
+          this.stepper.next()
           console.log(res);
         },
         (err) => {

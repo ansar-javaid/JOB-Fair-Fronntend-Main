@@ -31,7 +31,7 @@
         <input type="file" name="image" id="image" accept="image/*" (change)="onImageUpload($event)">
       </div>
       <div class="d-flex gap-2">
-        <button class="btn btn-primary" matStepperNext type="submit" [disabled]="isLoading">
+        <button class="btn btn-primary" type="submit" [disabled]="isLoading">
           <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Save
         </button>
       </div>

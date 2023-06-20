@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from '@auth0/angular-jwt';
+import { AdminModule } from './features/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { JwtInterceptor } from '@auth0/angular-jwt';
     ViewResumeModule,
     AuthModule,
     SharedModule,
+    AdminModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

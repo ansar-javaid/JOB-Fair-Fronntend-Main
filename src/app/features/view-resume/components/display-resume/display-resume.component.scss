@@ -1,3 +1,4 @@
+
 .section-heading {
     font-size: 23px;
     font-weight: 500;
@@ -12,4 +13,10 @@
 
 .img {
     height: 20px;
+}
+
+@media (max-width: 768px) {
+    .section-heading {
+        font-size: 18px;
+    }
 }

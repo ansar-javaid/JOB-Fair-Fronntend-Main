@@ -6,6 +6,7 @@ import { IDepartment } from 'src/app/features/models/api.model';
 import { AuthService } from 'src/app/auth/auth.service';
 import { DialogComponent } from 'src/app/shared/shared/components/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-personal',
@@ -14,6 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PersonalComponent {
   @Input() heading: string = '';
+  @Input() declare stepper: MatStepper;
   public imageUrl: string = '';
   public isFormLoaded: boolean = false;
   public allDepartments: IDepartment[] = [];
@@ -82,6 +84,7 @@ export class PersonalComponent {
       (res: any) => {
         this.isLoading = false;
         // Handle success response
+        this.stepper.next();
         console.log(res);
     
         if (res && res.hasOwnProperty('statusCode') && res.statusCode === 201) {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IResume } from 'src/app/features/models/resume.model';
 import { ResumeService } from '../../services/resume.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-resume',
@@ -12,7 +13,7 @@ export class DisplayResumeComponent {
   public dataLoaded: boolean = false;
   public email: string | null = ''
   
-  constructor(private resumeService: ResumeService){}
+  constructor(private resumeService: ResumeService, private router: Router){}
 
   ngOnInit(): void {
     this.resumeService.getResumeData(this.resumeService.getProfileId()).subscribe((data: IResume) => {
@@ -20,5 +21,13 @@ export class DisplayResumeComponent {
       this.dataLoaded = true;
       this.email = localStorage.getItem('email')
     });
+  }
+
+  public printResume(): void {
+    window.print()
+  }
+
+  public goToBuildResume(): void {
+    this.router.navigate(['build-resume']);
   }
 }

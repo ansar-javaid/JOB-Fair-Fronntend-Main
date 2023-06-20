@@ -1,7 +1,8 @@
 <ng-container *ngIf="dataLoaded">
     <div class="main-wrapper">
         <div class="container px-3 px-lg-5">
-            <article class="mx-auto p-5 mb-5 my-5 shadow-lg">
+            <button class="btn btn-danger mt-4" (click)="goToBuildResume()">Go Back</button>
+            <article class="mx-auto p-5 mb-5 mb-5 mt-2 shadow-lg">
     
                 <app-display-personal
                 [name]="resumeData.name"
@@ -39,7 +40,7 @@
                 </ng-container>
     
     
-                <button class="btn btn-primary ms-auto mt-4 d-block">Print Resume</button>
+                <button class="btn btn-primary ms-auto mt-4 d-block" (click)="printResume()">Print Resume</button>
             </article>
     
         </div>

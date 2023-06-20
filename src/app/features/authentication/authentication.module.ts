@@ -5,6 +5,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -17,7 +18,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
   imports: [
     CommonModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSnackBarModule
   ]
 })
 export class AuthenticationModule { }

@@ -4,20 +4,25 @@ import { ProfileImageComponent } from './components/profile-image/profile-image.
 import { DialogComponent } from './components/dialog/dialog.component';
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { TableComponent } from './components/table/table.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     ProfileImageComponent,
-    DialogComponent
+    DialogComponent,
+    TableComponent
   ],
   exports: [
     ProfileImageComponent,
-    DialogComponent
+    DialogComponent,
+    TableComponent,
   ],
   imports: [
     CommonModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

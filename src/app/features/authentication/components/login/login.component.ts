@@ -3,6 +3,7 @@ import { ILogin } from '../../models/user.model';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent {
   email = '';
   password = '';
 
-  constructor(private authService: AuthService, private router: Router, private jwtHelper: JwtHelperService) { }
+  constructor(private authService: AuthService, private router: Router, private jwtHelper: JwtHelperService, private snackBar: MatSnackBar) { }
 
   login(): void {
     if (!this.isValidEmail(this.email)) {
@@ -36,6 +37,7 @@ export class LoginComponent {
         (response) => {
           this.isLoading = false;
           if (response.statusCode === 200) {
+           this.showNotification('Login successful')
             const token = response.value.token;
             localStorage.setItem('access_token', token);
             const decodedToken = this.jwtHelper.decodeToken(token);
@@ -56,11 +58,13 @@ export class LoginComponent {
               // this.router.navigate(['/Super']);
             }
           } else if (response.statusCode === 401) {
+            this.showNotification('Login failed, please check your credentials');
             console.log("NotFound")
             localStorage.clear();
           }
           else {
             console.error('Login failed: Role Error', response);
+            this.showNotification('Login failed');
             this.errorMessage = response.value;
             //Clear the Storage
             localStorage.clear();
@@ -84,6 +88,13 @@ export class LoginComponent {
     // Email validation rule using regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+  }
+
+  private showNotification (message: string) {
+    this.snackBar.open(message, 'Close', {
+      horizontalPosition: 'end',
+      verticalPosition: 'top'
+    })
   }
 
 }

@@ -1,0 +1,7 @@
+<div class="">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <ng-container *ngFor="let department of departments">
+            <button type="button" class="btn btn-primary" (click)="selectDepartment(department.name)">{{department.name}}</button>
+        </ng-container>
+    </div>
+</div>

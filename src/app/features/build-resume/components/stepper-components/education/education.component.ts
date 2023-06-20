@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IEducation } from '../../../../models/resume.model';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-education',
@@ -9,6 +10,7 @@ import { IEducation } from '../../../../models/resume.model';
 })
 export class EducationComponent {
   @Input() heading: string = '';
+  @Input() declare stepper: MatStepper;
   public dummyEducationData: IEducation = {
     instituteName: '',
     major: '',
@@ -56,6 +58,7 @@ export class EducationComponent {
       }).subscribe(
         (res) => {
           // Handle success response
+          this.stepper.next()
           console.log(res);
         },
         (err) => {

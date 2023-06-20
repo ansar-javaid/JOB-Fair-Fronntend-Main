@@ -5,6 +5,7 @@ import { ForgotPasswordComponent } from "../features/authentication/components/f
 import { ResumeStepperComponent } from "../features/build-resume/components/resume-stepper/resume-stepper.component";
 import { DisplayResumeComponent } from "../features/view-resume/components/display-resume/display-resume.component";
 import { AuthGuard } from "../auth/auth.guard";
+import { ViewStudentsComponent } from '../features/admin/components/view-students/view-students.component';
 
 export const sdcRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -13,5 +14,6 @@ export const sdcRoutes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'build-resume', component: ResumeStepperComponent, canActivate: [AuthGuard] },
   { path: 'view-resume', component: DisplayResumeComponent, canActivate: [AuthGuard] },
+  { path: 'view-students', component: ViewStudentsComponent },
   { path: '**', redirectTo: 'login' } // Redirect to login page for unknown routes
 ];

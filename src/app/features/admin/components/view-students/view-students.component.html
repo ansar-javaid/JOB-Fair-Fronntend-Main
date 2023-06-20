@@ -1,0 +1,14 @@
+<div class="container mt-4">
+    <h1 class="">Departments</h1>
+    <div class="d-flex justify-content-center mb-3">
+        <app-students-header
+        (departmentName)="selectDepartment($event)"
+        [departments]="departments"
+        ></app-students-header>
+    </div>
+    <h2>{{currentDepartment}}</h2>
+    <app-table
+    [students]="students"
+    [tableHeadings]="tableHeading"
+    ></app-table>
+</div>

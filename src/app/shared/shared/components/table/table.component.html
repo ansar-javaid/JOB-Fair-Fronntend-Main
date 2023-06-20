@@ -1,0 +1,32 @@
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Search</span>
+    <input type="text" class="form-control" placeholder="Search using email" aria-label="Username" aria-describedby="basic-addon1"
+    [(ngModel)]="searchQuery"
+    >
+  </div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <ng-container *ngFor="let heading of tableHeadings">
+                <th scope="col">{{heading}}</th>
+            </ng-container>
+          </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="">
+
+            </ng-container>
+          <ng-container *ngFor=" let student of searchStudents; let i=index">
+              <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{student.name}}</td>
+                <td>{{student.department}}</td>
+                <td>{{student.registration}}</td>
+                <td>{{student.gender}}</td>
+                <td>{{student.email}}</td>
+              </tr>
+          </ng-container>
+        </tbody>
+      </table>
+</div>

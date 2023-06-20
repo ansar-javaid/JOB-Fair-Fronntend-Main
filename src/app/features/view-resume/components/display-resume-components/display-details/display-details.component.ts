@@ -54,7 +54,7 @@ export class DisplayDetailsComponent {
   }
 
   private setCertificationData(data: ICertification): void {
-    this.title = data.organization;
+    this.title = data.name;
     this.from = data.organization;
     this.end = data.end;
   }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { IUserSignup } from '../../models/user.model';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signup',
@@ -20,7 +21,7 @@ export class SignupComponent {
     confirmPassword: ''
   };
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private snackBar: MatSnackBar) { }
 
   public handleSignup(): void {
     if (!this.signupData.firstName) {
@@ -42,11 +43,13 @@ export class SignupComponent {
           this.isLoading = false;
           if (response.statusCode === 500) {
             console.error('Registration failed:', response.value.message);
+            this.showNotification('Registration Failed')
             this.errorMessage = response.value.message;
 
           }
           else if (response.statusCode === 200) {
             console.log('Registration Success:', response.value.message);
+            this.showNotification('Registration Successfull')
             this.errorMessage = response.value.message;
             this.router.navigate(['/login']);
 
@@ -54,6 +57,7 @@ export class SignupComponent {
           else {
             console.error('Registration failed:', response);
             this.errorMessage = 'An error occurred. Please try again later.';
+            this.showNotification('Registration Failed')
           }
         },
         (error) => {
@@ -106,5 +110,12 @@ export class SignupComponent {
       containsUppercase &&
       containsLowercase
     );
+  }
+
+  private showNotification (message: string) {
+    this.snackBar.open(message, 'Close', {
+      horizontalPosition: 'end',
+      verticalPosition: 'top'
+    })
   }
 }

@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
       const role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
       if (role === 'User') {
         // Redirect to the build-resume page
-        this.router.navigate(['/build-resume']);
+        // this.router.navigate(['/build-resume']);
       } else if (role === 'Admin') {
         // Redirect to another page based on the role (if needed)
         // this.router.navigate(['/Admin']);

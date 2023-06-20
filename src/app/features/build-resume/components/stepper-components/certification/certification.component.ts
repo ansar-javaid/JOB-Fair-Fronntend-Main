@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ICertification } from '../../../../models/resume.model';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-certification',
@@ -9,6 +10,7 @@ import { ICertification } from '../../../../models/resume.model';
 })
 export class CertificationComponent {
   @Input() heading: string = '';
+  @Input() declare stepper: MatStepper;
   public dummyCertificationData: ICertification = {
     name: '',
     organization: '',
@@ -50,6 +52,7 @@ export class CertificationComponent {
       }).subscribe(
         (res) => {
           // Handle success response
+          this.stepper.next()
           console.log(res);
         },
         (err) => {

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IAwards } from '../../../../models/resume.model';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-awards',
@@ -9,6 +10,7 @@ import { IAwards } from '../../../../models/resume.model';
 })
 export class AwardsComponent {
   @Input() heading: string = '';
+  @Input() declare stepper: MatStepper;
 
   public dummyAwardData: IAwards = {
     name: '',
@@ -48,6 +50,7 @@ export class AwardsComponent {
       }).subscribe(
         (res) => {
           // Handle success response
+          this.stepper.next()
           console.log(res);
         },
         (err) => {

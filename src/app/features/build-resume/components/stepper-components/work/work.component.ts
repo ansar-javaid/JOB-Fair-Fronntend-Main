@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IWork } from '../../../../models/resume.model';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-work',
@@ -9,6 +10,7 @@ import { IWork } from '../../../../models/resume.model';
 })
 export class WorkComponent {
   @Input() heading: string = '';
+  @Input() declare stepper: MatStepper;
   public dummyWorkData: IWork = {
     organization: '',
     jobRole: '',
@@ -56,6 +58,7 @@ export class WorkComponent {
       }).subscribe(
         (res) => {
           // Handle success response
+          this.stepper.next();
           console.log(res);
         },
         (err) => {
