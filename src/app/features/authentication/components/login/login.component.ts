@@ -48,6 +48,7 @@ export class LoginComponent {
             localStorage.setItem('email', email);
             if (role === 'User') {
               console.log("Success: 200:OK")
+              this.showNotification('Important! Details once saved cannot be changed. \n Please fill all the details carefully.\n You can view your CV/Resume with "View Resume" button \n Best of Luck for the Future.');
               this.router.navigate(['/build-resume']);
             } else if (role === 'Admin') {
               // Redirect to another page based on the role (if needed)
