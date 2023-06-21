@@ -23,9 +23,9 @@
       </div>
       
       <div class="mb-3 d-flex gap-3">
-        <textarea placeholder="Summary" class="form-control" formControlName="Summary"></textarea>
+        <textarea placeholder="Objective" class="form-control" formControlName="Summary"></textarea>
       </div>
-      
+      <h3>Upload your image</h3>
       <div class="mb-3 d-flex align-items-center">
         <app-profile-image [profileImageUrl]="imageUrl" *ngIf="imageUrl"></app-profile-image>
         <input type="file" name="image" id="image" accept="image/*" (change)="onImageUpload($event)">

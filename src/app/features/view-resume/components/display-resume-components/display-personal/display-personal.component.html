@@ -3,7 +3,7 @@
                 <div class="row align-items-center">
                     <div class="col-12 col-md-6 col-lg-8 col-xl-9">
                         <div class="d-flex align-items-center gap-3">
-                            <app-profile-image [profileImageUrl]="image"></app-profile-image>
+                            <app-profile-image [profileImageUrl]="image" *ngIf="image"></app-profile-image>
                             <div>
                                 <h2 class="resume-name mb-2 text-uppercase text-success">{{name}}</h2>
                                 <!-- <div class="lead mb-3 mb-md-0">Senior Software Engineer</div> -->
@@ -16,8 +16,8 @@
                             <li class="mb-2" *ngIf="email"><i class="bi bi-envelope me-1"></i><a
                                     href="mailto:#">{{email}}</a></li>
                             <li class="mb-2" *ngIf="webLink"><i class="bi bi-globe me-1"></i><a href="#">{{webLink}}</a></li>
-                            <li class="mb-2" *ngIf="address"><i class="bi bi-globe me-1"></i><a>{{address}}</a></li>
-                            <li class="mb-0" *ngIf="linkedIn"><i class="bi bi-linkedin me-1"></i>{{linkedIn}}</li>
+                            <li class="mb-2" *ngIf="address"><i class="bi bi-geo-alt-fill me-1"></i><a>{{address}}</a></li>
+                            <li class="mb-0" *ngIf="linkedIn"><i class="bi bi-linkedin me-1"></i><a [href]="linkedIn" target="_blank">LinkedIn</a></li>
                         </ul>
                     </div>
                 </div>

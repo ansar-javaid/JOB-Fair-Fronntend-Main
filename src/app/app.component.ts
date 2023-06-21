@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
       }
     } else {
       // Token is invalid or not present, redirect to login page
-      this.router.navigate(['/login']);
+      // this.router.navigate(['/login']);
     }
   }
 }

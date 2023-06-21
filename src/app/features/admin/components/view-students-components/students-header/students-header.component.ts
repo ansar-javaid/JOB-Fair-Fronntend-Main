@@ -9,9 +9,11 @@ import { IDepartment } from 'src/app/features/models/api.model';
 export class StudentsHeaderComponent {
   @Input() declare departments: IDepartment[];
   @Output() departmentName = new EventEmitter<string>();
+  public dropdownTitle: string = ''
 
 
   public selectDepartment(department: string) {
+    this.dropdownTitle = department;
     this.departmentName.emit(department);
   }
 }

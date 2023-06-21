@@ -3,13 +3,19 @@
         <section>
             <div class="item mb-1">
                 <div class="item-heading row align-items-center mb-3">
-                    <h4 class="item-title px-md-5 col-12 col-md-6 col-lg-8 mb-2 mb-md-0">{{title}}</h4>
-                    <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end" *ngIf="!skill && !award">
+                    <div class=" px-md-5 col-12 col-md-6 col-lg-8 mb-2 mb-md-0">
+                        <h4 class="item-title">{{title}}</h4>
+                        <p class="desc" *ngIf="jobDescription">&nbsp;&nbsp;&nbsp;{{jobDescription}}</p>
+                    </div>
+                    <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end"
+                        *ngIf="!skill && !award">
                         {{from}} {{from ? '|' : ''}} {{start | date}} {{start ? '-' : ''}} {{end | date}}</div>
 
-                        <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end" *ngIf="!skill && award">
-                            {{from}} {{from ? '|' : ''}} {{start }} {{start ? '-' : ''}} {{end}}</div>
+                    <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end"
+                        *ngIf="!skill && award">
+                        {{from}} {{from ? '|' : ''}} {{start }} {{start ? '-' : ''}} {{end}}</div>
                 </div>
+
             </div>
 
         </section>

@@ -16,14 +16,14 @@
         <tbody>
             <ng-container *ngIf="">
 
-            </ng-container>
+            </ng-container> 
           <ng-container *ngFor=" let student of searchStudents; let i=index">
-              <tr>
+              <tr (click)="viewResume(student.profileID, student.email)">
                 <th scope="row">{{i+1}}</th>
                 <td>{{student.name}}</td>
                 <td>{{student.department}}</td>
                 <td>{{student.registration}}</td>
-                <td>{{student.gender}}</td>
+                <td>{{student.gender == '1' ? 'Male': 'Female'}}</td>
                 <td>{{student.email}}</td>
               </tr>
           </ng-container>

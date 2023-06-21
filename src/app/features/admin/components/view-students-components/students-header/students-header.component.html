@@ -1,7 +1,18 @@
-<div class="">
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      {{dropdownTitle ? dropdownTitle : 'Select Department'}}
+    </button>
+    <ul class="dropdown-menu">
+        <ng-container *ngFor="let department of departments">
+            <li><a class="dropdown-item" (click)="selectDepartment(department.name)">{{department.name}}</a></li>
+        </ng-container>
+    </ul>
+  </div>
+
+<!-- <div class="">
     <div class="btn-group" role="group" aria-label="Basic example">
         <ng-container *ngFor="let department of departments">
             <button type="button" class="btn btn-primary" (click)="selectDepartment(department.name)">{{department.name}}</button>
         </ng-container>
     </div>
-</div>
+</div> -->

@@ -18,6 +18,7 @@ export class DisplayDetailsComponent {
   public from: string = '';
   public start: string = '';
   public end: string = '';
+  public jobDescription: string = ''
 
   public ngOnInit(): void {
     if (this.workExperience) {
@@ -40,6 +41,7 @@ export class DisplayDetailsComponent {
     this.from = this.workExperience.organization;
     this.start = this.workExperience.start;
     this.end = this.workExperience.end;
+    this.jobDescription = this.workExperience.jobDescription;
   }
 
   private setEducationData(data: IEducation): void {

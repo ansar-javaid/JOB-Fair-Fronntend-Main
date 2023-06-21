@@ -8,7 +8,8 @@
     </div>
     <h2>{{currentDepartment}}</h2>
     <app-table
-    [students]="students"
+    [students]="filteredStudents"
     [tableHeadings]="tableHeading"
+    [currentDepartment]="currentDepartment"
     ></app-table>
 </div>

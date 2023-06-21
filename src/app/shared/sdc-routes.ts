@@ -13,7 +13,7 @@ export const sdcRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'build-resume', component: ResumeStepperComponent, canActivate: [AuthGuard] },
-  { path: 'view-resume', component: DisplayResumeComponent, canActivate: [AuthGuard] },
-  { path: 'view-students', component: ViewStudentsComponent },
+  { path: 'view-resume/:id', component: DisplayResumeComponent, canActivate: [AuthGuard] },
+  { path: 'view-students', component: ViewStudentsComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'login' } // Redirect to login page for unknown routes
 ];

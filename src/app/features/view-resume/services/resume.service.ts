@@ -16,6 +16,18 @@ export class ResumeService {
     return localStorage.getItem('profileID');
   }
 
+  public setStudentEmail(email: string): void {
+    localStorage.setItem('studentEmail', email)
+  }
+
+  public removeStudentEmail(): void {
+    localStorage.removeItem('studentEmail')
+  }
+
+  public getStudentEmail(): string | null {
+    return localStorage.getItem('studentEmail')
+  }
+
 
   public getResumeData(profileId: string | null): Observable<IResume> {
     const token = localStorage.getItem('access_token');

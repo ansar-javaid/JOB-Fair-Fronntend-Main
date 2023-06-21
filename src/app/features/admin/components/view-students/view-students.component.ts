@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IDepartment } from 'src/app/features/models/api.model';
 import { IStudents } from 'src/app/features/models/students.model';
 import { DepartmentService } from 'src/app/shared/shared/services/department.service';
+import { StudentsService } from 'src/app/shared/shared/services/students.service';
 
 @Component({
   selector: 'app-view-students',
@@ -12,37 +13,42 @@ export class ViewStudentsComponent {
 
   public declare departments: IDepartment[];
   public students: IStudents[] = [];
+  public filteredStudents: IStudents[] = [];
   public tableHeading: string[] = []
   public currentDepartment: string = 'All Departments';
 
   constructor(
-    private departmentService: DepartmentService
+    private departmentService: DepartmentService,
+    private studentsService: StudentsService
   ){}
 
 
   ngOnInit() {
-    this.departmentService.getAllDepartments().subscribe((departments: IDepartment[]) => {
-      this.departments = departments;
-    });
-
-    //Generating dummy students
-    for (let i = 0; i < 20; i++) {
-      this.students.push({
-        name: 'Rabbaniyeh',
-        department: 'CS',
-        registration: 'FA19-BCS-013',
-        gender: 'Female',
-        email: 'rabbaniyeh@gmail.com'
-      })
-      
-    }
-
+    this.getAllDepartments();
+    this.getAllStudents();
     //Table heading
     this.tableHeading = ['ID', 'Name', 'Department', 'Registration', 'Gender', 'Email']
   }
 
   public selectDepartment(e: string) {
     this.currentDepartment = e;
+    this.filteredStudents = this.students.filter(student => {
+      return student.department.includes(this.currentDepartment)
+    })
+  }
+
+  public getAllDepartments(): void {
+    this.departmentService.getAllDepartments().subscribe((departments: IDepartment[]) => {
+      this.departments = departments;
+    });
+  }
+
+  public getAllStudents(): void {
+    this.studentsService.getAllStudents().subscribe((students:IStudents[]) => {
+      this.students = students;
+      this.filteredStudents = students;
+      console.log(this.students)
+    })
   }
 
 }

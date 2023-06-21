@@ -14,27 +14,31 @@
                 [image]="resumeData.image"
                 [email]="email"
                 ></app-display-personal>
-                <h3 class="text-uppercase mb-3 section-heading text-success"><i class="bi bi-caret-right"></i> Work Experince</h3>
+                <h3 class="text-uppercase mb-3 section-heading text-success" *ngIf="resumeData.work.length > 0"><i class="bi bi-caret-right"></i> Work Experince</h3>
                 <ng-container *ngFor="let work of resumeData.work">
                     <app-display-details [workExperience]='work'></app-display-details>
                 </ng-container>
     
-                <h3 class="text-uppercase mb-3 section-heading text-success"><i class="bi bi-caret-right"></i> Education</h3>
+                <h3 class="text-uppercase mb-3 section-heading text-success" *ngIf="resumeData.education.length > 0" ><i class="bi bi-caret-right"></i> Education</h3>
                 <ng-container *ngFor="let education of resumeData.education">
                     <app-display-details [education]='education'></app-display-details>
                 </ng-container>
     
-                <h3 class="text-uppercase mb-3 section-heading text-success"><i class="bi bi-caret-right"></i> Skills</h3>
-                <ng-container *ngFor="let skill of resumeData.skill">
-                    <app-display-details [skill]='skill'></app-display-details>
-                </ng-container>
+                <h3 class="text-uppercase mb-3 section-heading text-success" *ngIf="resumeData.skill.length > 0"><i class="bi bi-caret-right"></i> Skills</h3>
+                <div class="row">
+                    <ng-container *ngFor="let skill of resumeData.skill">
+                        <div class="col-12 col-md-6">
+                            <app-display-details [skill]='skill'></app-display-details>
+                        </div>
+                    </ng-container>
+                </div>
     
-                <h3 class="text-uppercase mb-3 section-heading text-success"><i class="bi bi-caret-right"></i> Certifications</h3>
+                <h3 class="text-uppercase mb-3 section-heading text-success" *ngIf="resumeData.certification.length > 0"><i class="bi bi-caret-right"></i> Certifications</h3>
                 <ng-container *ngFor="let certification of resumeData.certification">
                     <app-display-details [certification]='certification'></app-display-details>
                 </ng-container>
     
-                <h3 class="text-uppercase mb-3 section-heading text-success"><i class="bi bi-caret-right"></i> Awards</h3>
+                <h3 class="text-uppercase mb-3 section-heading text-success" *ngIf="resumeData.award.length > 0"><i class="bi bi-caret-right"></i> Awards</h3>
                 <ng-container *ngFor="let award of resumeData.award">
                     <app-display-details [award]='award'></app-display-details>
                 </ng-container>
